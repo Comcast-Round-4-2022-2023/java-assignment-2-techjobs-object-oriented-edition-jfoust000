@@ -20,6 +20,18 @@ public class CoreCompetency {
 
     // Custom toString, equals, and hashCode methods:
 
+    public int getId() {
+        return id;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
     @Override
     public String toString() {
         return value;
@@ -30,7 +42,7 @@ public class CoreCompetency {
         if (this == o) return true;
         if (!(o instanceof CoreCompetency)) return false;
         CoreCompetency that = (CoreCompetency) o;
-        return id == that.id;
+        return getId() == that.getId();
     }
 
     @Override
