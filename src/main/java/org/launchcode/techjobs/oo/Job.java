@@ -100,4 +100,39 @@ public class Job {
         this.coreCompetency = coreCompetency;
     }
 
+
+    @Override
+    public String toString() {
+
+        String lineSeparator = System.lineSeparator();
+        String dataNotAvailable = "Data not available";
+        String onlyIdFieldFound = "OOPS! This job does not seem to exist.";
+
+        String jobToString = "";
+
+        if ((this.getId() > 0) && this.getName() == null && this.getEmployer() == null && this.getLocation() == null
+            && this.getPositionType() == null && this.getCoreCompetency() == null)  {
+
+            jobToString = onlyIdFieldFound;
+
+        } else {
+
+            jobToString =
+
+                    lineSeparator
+                            + "ID: " + (this.getId() == 0 ? dataNotAvailable : this.getId()) + lineSeparator
+                            + "Name: " + (this.getName() == "" ? dataNotAvailable : this.getName()) + lineSeparator
+                            + "Employer: " + (this.getEmployer().getValue() == "" ? dataNotAvailable : this.getEmployer()) + lineSeparator
+                            + "Location: " + (this.getLocation().getValue() == "" ? dataNotAvailable : this.getLocation()) + lineSeparator
+                            + "Position Type: " + (this.getPositionType().getValue() == "" ? dataNotAvailable : this.getPositionType()) + lineSeparator
+                            + "Core Competency: " + (this.getCoreCompetency().getValue() == "" ? dataNotAvailable : this.getCoreCompetency())
+                            + lineSeparator;
+
+        }
+
+        return jobToString;
+
+    }
+
+
 }

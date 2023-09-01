@@ -44,6 +44,7 @@ public class JobTest {
 
     }
 
+    @Test
     public void testJobsForEquality() {
 
         Job productTester = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
@@ -53,6 +54,88 @@ public class JobTest {
                 new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
         assertFalse(productTester.equals(secondProductTester));
+
+    }
+
+    @Test
+    public void testToStringStartsAndEndsWithNewLine() {
+
+        String lineSeparator = System.lineSeparator();
+
+        Job productTester = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
+                new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+        String jobToString = productTester.toString();
+
+        assertEquals(Character.toString(jobToString.charAt(0)), lineSeparator);
+        assertEquals(Character.toString(jobToString.charAt(jobToString.length() - 1)), lineSeparator);
+
+    }
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData() {
+
+        String lineSeparator = System.lineSeparator();
+
+        Job productTester = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
+                new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+        String expectedJobToString =
+
+                        lineSeparator
+                        + "ID: " + productTester.getId() + lineSeparator
+                        + "Name: " + productTester.getName() + lineSeparator
+                        + "Employer: " + productTester.getEmployer() + lineSeparator
+                        + "Location: " + productTester.getLocation() + lineSeparator
+                        + "Position Type: " + productTester.getPositionType() + lineSeparator
+                        + "Core Competency: " + productTester.getCoreCompetency()
+                        + lineSeparator;
+
+
+
+        String actualJobToString = productTester.toString();
+
+        assertEquals(expectedJobToString, actualJobToString);
+
+    }
+
+    @Test
+    public void testToStringHandlesEmptyField() {
+
+        String lineSeparator = System.lineSeparator();
+        String dataNotAvailable = "Data not available";
+
+        Job productTester = new Job("Product tester", new Employer("ACME"), new Location(""),
+                new PositionType("Quality control"), new CoreCompetency(""));
+
+        String expectedJobToString =
+
+                        lineSeparator
+                        + "ID: " + productTester.getId() + lineSeparator
+                        + "Name: " + productTester.getName() + lineSeparator
+                        + "Employer: " + productTester.getEmployer() + lineSeparator
+                        + "Location: " + dataNotAvailable + lineSeparator
+                        + "Position Type: " + productTester.getPositionType() + lineSeparator
+                        + "Core Competency: " + dataNotAvailable
+                        + lineSeparator;
+
+        String actualJobToString = productTester.toString();
+
+        assertEquals(actualJobToString, expectedJobToString);
+
+
+    }
+
+    @Test
+    public void testToStringJobObjectOnlyContainsDataForTheIdField() {
+
+        String onlyIdFieldFound = "OOPS! This job does not seem to exist.";
+
+        Job productTester = new Job();
+
+        String actualJobToString = productTester.toString();
+
+        assertEquals(actualJobToString, onlyIdFieldFound);
 
     }
 
