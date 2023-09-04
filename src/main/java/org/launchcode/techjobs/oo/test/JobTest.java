@@ -75,7 +75,7 @@ public class JobTest {
     @Test
     public void testToStringContainsCorrectLabelsAndData() {
 
-        String lineSeparator = System.lineSeparator();
+        char lineSeparator = '\n';
 
         Job productTester = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
                 new PositionType("Quality control"), new CoreCompetency("Persistence"));
@@ -102,7 +102,7 @@ public class JobTest {
     @Test
     public void testToStringHandlesEmptyField() {
 
-        String lineSeparator = System.lineSeparator();
+        char lineSeparator = '\n';
         String dataNotAvailable = "Data not available";
 
         Job productTester = new Job("Product tester", new Employer("ACME"), new Location(""),
