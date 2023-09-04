@@ -120,7 +120,7 @@ public class Job {
             jobToString =
 
                             lineSeparator
-                            + "ID: " + (this.getId() == 0 ? dataNotAvailable : this.getId()) + lineSeparator
+                            + "ID: " + this.getId() + lineSeparator
                             + "Name: " + (Objects.equals(this.getName(), "") ? dataNotAvailable : this.getName()) + lineSeparator
                             + "Employer: " + (Objects.equals(this.getEmployer().getValue(), "") ? dataNotAvailable : this.getEmployer()) + lineSeparator
                             + "Location: " + (Objects.equals(this.getLocation().getValue(), "") ? dataNotAvailable : this.getLocation()) + lineSeparator
