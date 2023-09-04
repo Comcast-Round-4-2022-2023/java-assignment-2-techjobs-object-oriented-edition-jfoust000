@@ -121,11 +121,11 @@ public class Job {
 
                     lineSeparator
                             + "ID: " + (this.getId() == 0 ? dataNotAvailable : this.getId()) + lineSeparator
-                            + "Name: " + (this.getName() == "" ? dataNotAvailable : this.getName()) + lineSeparator
-                            + "Employer: " + (this.getEmployer().getValue() == "" ? dataNotAvailable : this.getEmployer()) + lineSeparator
-                            + "Location: " + (this.getLocation().getValue() == "" ? dataNotAvailable : this.getLocation()) + lineSeparator
-                            + "Position Type: " + (this.getPositionType().getValue() == "" ? dataNotAvailable : this.getPositionType()) + lineSeparator
-                            + "Core Competency: " + (this.getCoreCompetency().getValue() == "" ? dataNotAvailable : this.getCoreCompetency())
+                            + "Name: " + (Objects.equals(this.getName(), "") ? dataNotAvailable : this.getName()) + lineSeparator
+                            + "Employer: " + (Objects.equals(this.getEmployer().getValue(), "") ? dataNotAvailable : this.getEmployer()) + lineSeparator
+                            + "Location: " + (Objects.equals(this.getLocation().getValue(), "") ? dataNotAvailable : this.getLocation()) + lineSeparator
+                            + "Position Type: " + (Objects.equals(this.getPositionType().getValue(), "") ? dataNotAvailable : this.getPositionType()) + lineSeparator
+                            + "Core Competency: " + (Objects.equals(this.getCoreCompetency().getValue(), "") ? dataNotAvailable : this.getCoreCompetency())
                             + lineSeparator;
 
         }
