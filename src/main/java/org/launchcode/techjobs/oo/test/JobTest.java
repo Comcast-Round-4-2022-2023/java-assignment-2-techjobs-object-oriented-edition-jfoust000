@@ -60,15 +60,15 @@ public class JobTest {
     @Test
     public void testToStringStartsAndEndsWithNewLine() {
 
-        String lineSeparator = System.lineSeparator();
+        char lineSeparator = '\n';
 
         Job productTester = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
                 new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
         String jobToString = productTester.toString();
 
-        assertEquals(Character.toString(jobToString.charAt(0)), lineSeparator);
-        assertEquals(Character.toString(jobToString.charAt(jobToString.length() - 1)), lineSeparator);
+        assertEquals(jobToString.charAt(0), lineSeparator);
+        assertEquals(jobToString.charAt(jobToString.length() - 1), lineSeparator);
 
     }
 

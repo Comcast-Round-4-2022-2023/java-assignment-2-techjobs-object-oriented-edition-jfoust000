@@ -104,7 +104,7 @@ public class Job {
     @Override
     public String toString() {
 
-        String lineSeparator = System.lineSeparator();
+        char lineSeparator = '\n';
         String dataNotAvailable = "Data not available";
         String onlyIdFieldFound = "OOPS! This job does not seem to exist.";
 
@@ -119,7 +119,7 @@ public class Job {
 
             jobToString =
 
-                    lineSeparator
+                            lineSeparator
                             + "ID: " + (this.getId() == 0 ? dataNotAvailable : this.getId()) + lineSeparator
                             + "Name: " + (Objects.equals(this.getName(), "") ? dataNotAvailable : this.getName()) + lineSeparator
                             + "Employer: " + (Objects.equals(this.getEmployer().getValue(), "") ? dataNotAvailable : this.getEmployer()) + lineSeparator
@@ -133,6 +133,5 @@ public class Job {
         return jobToString;
 
     }
-
 
 }
