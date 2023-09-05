@@ -1,7 +1,5 @@
 package org.launchcode.techjobs.oo;
 
-import org.launchcode.techjobs.oo.test.JobTest;
-
 import java.util.Objects;
 
 public abstract class JobField {
